@@ -1,8 +1,11 @@
 from django.shortcuts import render
+from django.core.paginator import Paginator
 
 from products.models import Product
 
 
 def products(request):
-    product_list = Product.objects.all()
-    return render(request, "index.html", {"product_list": product_list})
+    paginator = Paginator(Product.objects.all(), 15)
+    page_number = request.GET.get("page")
+    page = paginator.get_page(page_number)
+    return render(request, "index.html", {"page": page})
