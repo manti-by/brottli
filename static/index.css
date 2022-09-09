@@ -1,0 +1,18 @@
+.filter-form form {
+  padding: 1rem 0;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 2rem;
+}
+
+.filter-form form div {
+  padding-right: 1rem;
+}
+
+.filter-form .submit-row {
+  position: relative;
+}
+
+.filter-form .submit-row button {
+  position: absolute;
+  bottom: 0;
+}
