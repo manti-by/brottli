@@ -17,12 +17,13 @@ from django.conf import settings
 from django.contrib import admin
 from django.urls import path
 
-from products.views import products
+from products.views import products, product_details
 from users.views import logout_view, login_view, register_view
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("", products, name="index"),
+    path("product/<int:product_id>/", product_details, name="product_details"),
     path("register/", register_view, name="register"),
     path("login/", login_view, name="login"),
     path("logout/", logout_view, name="logout"),

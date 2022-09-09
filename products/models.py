@@ -11,3 +11,12 @@ class Product(models.Model):
 
     def __str__(self):
         return f"Product: {self.title}"
+
+
+class Favorite(models.Model):
+    user = models.ForeignKey(
+        "users.User", related_name="favorites", on_delete=models.CASCADE
+    )
+    product = models.ForeignKey(
+        Product, related_name="favorites", on_delete=models.CASCADE
+    )

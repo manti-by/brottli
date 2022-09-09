@@ -22,7 +22,10 @@ class Command(BaseCommand):
             Product.objects.all().delete()
 
         def crawler_results(signal, sender, item, response, spider):
-            Product.objects.update_or_create(external_id=item["external_id"], defaults=item)
+            Product.objects.update_or_create(
+                external_id=item["external_id"], defaults=item
+            )
+
         dispatcher.connect(crawler_results, signal=signals.item_scraped)
 
         process = CrawlerProcess(get_project_settings())
